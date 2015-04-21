@@ -166,8 +166,8 @@ end
 
 function print( ... )
     local nLinesPrinted = 0
-    for n,v in ipairs( { ... } ) do
-        nLinesPrinted = nLinesPrinted + write( tostring( v ) )
+    for n = 1, select('#', ... ) do
+        nLinesPrinted = nLinesPrinted + write( tostring( select( n, ... ) ) )
     end
     nLinesPrinted = nLinesPrinted + write( "\n" )
     return nLinesPrinted
